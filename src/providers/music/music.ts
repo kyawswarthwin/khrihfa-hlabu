@@ -14,13 +14,17 @@ export class MusicProvider {
 
   load(params?: any): Observable<Song[]> {
     const { search } = params || {};
+    let songs = this.songs;
     if (search) {
-      return this.songs.map(songs =>
-        songs.filter(song => song.title.toLowerCase().indexOf(search.toLowerCase()) > -1)
+      songs = songs.map(songs =>
+        songs.filter(
+          song =>
+            song.id.toString() === search ||
+            song.title.toLowerCase().indexOf(search.toLowerCase()) > -1
+        )
       );
-    } else {
-      return this.songs;
     }
+    return songs;
   }
 
   private loadFromAssets() {
