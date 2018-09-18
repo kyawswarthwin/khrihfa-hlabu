@@ -13,12 +13,12 @@ export class MusicProvider {
     this.loadFromAssets();
   }
 
-  load(params?: any): Observable<Song[]> {
+  load(params?: any, fields: string[] = ['id', 'title']): Observable<Song[]> {
     const { search } = params || {};
     let songs = this.songs;
     if (search) {
       songs = songs.map(songs =>
-        songs.filter(song => ['id', 'title'].some(key => RegExp(search, 'i').test(song[key])))
+        songs.filter(song => fields.some(field => RegExp(search, 'i').test(song[field])))
       );
     }
     return songs;
