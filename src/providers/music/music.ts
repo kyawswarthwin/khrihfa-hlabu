@@ -13,8 +13,8 @@ export class MusicProvider {
     this.loadFromAssets();
   }
 
-  load(params?: any, fields: string[] = ['id', 'title']): Observable<Song[]> {
-    const { search } = params || {};
+  load(params: any = {}, fields: string[] = ['id', 'title']): Observable<Song[]> {
+    const { search } = params;
     let songs = this.songs;
     if (search) {
       songs = songs.map(songs =>
