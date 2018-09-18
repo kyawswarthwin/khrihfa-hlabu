@@ -18,11 +18,7 @@ export class MusicProvider {
     let songs = this.songs;
     if (search) {
       songs = songs.map(songs =>
-        songs.filter(
-          song =>
-            song.id.toString() === search ||
-            song.title.toLowerCase().indexOf(search.toLowerCase()) > -1
-        )
+        songs.filter(song => ['id', 'title'].some(key => new RegExp(search, 'i').test(song[key])))
       );
     }
     return songs;
