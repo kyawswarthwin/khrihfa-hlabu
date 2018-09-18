@@ -1,0 +1,7 @@
+{
+  "name": "Daily Bible Chin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
