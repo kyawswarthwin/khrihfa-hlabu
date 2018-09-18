@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = 'MusicPage';
+  rootPage: any = 'music';
 
   constructor(
     private platform: Platform,

@@ -8,7 +8,7 @@ import { Song } from '../../models/song/song';
 export class MusicProvider {
   constructor(private http: HttpClient) {}
 
-  load(params?: any): Observable<Song[]> {
+  load(): Observable<Song[]> {
     return this.http.get('assets/data/music.json').map((res: any) => <Song[]>res);
   }
 }
