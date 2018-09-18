@@ -3,11 +3,14 @@
     <ion-title>Music</ion-title>
   </ion-navbar>
   <ion-toolbar no-border-top>
-    <ion-searchbar [(ngModel)]="params.search" (keyup.enter)="onSearch()" (ionClear)="onClearSearch()"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="params.search" [formControl]="searchControl" (ionInput)="onSearchInput($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
   <ion-list [virtualScroll]="songs">
     <button ion-item *virtualItem="let song">
       {{ song.id }}. {{ song.title }}
