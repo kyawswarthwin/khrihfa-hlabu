@@ -6,9 +6,24 @@ import { Song } from '../../models/song/song';
 
 @Injectable()
 export class MusicProvider {
-  constructor(private http: HttpClient) {}
+  private songs: Observable<Song[]>;
 
-  load(): Observable<Song[]> {
-    return this.http.get('assets/data/music.json').map((res: any) => <Song[]>res);
+  constructor(private http: HttpClient) {
+    this.loadFromAssets();
+  }
+
+  load(params?: any): Observable<Song[]> {
+    const { search } = params || {};
+    if (search) {
+      return this.songs.map(songs =>
+        songs.filter(song => song.title.toLowerCase().indexOf(search.toLowerCase()) > -1)
+      );
+    } else {
+      return this.songs;
+    }
+  }
+
+  private loadFromAssets() {
+    this.songs = this.http.get('assets/data/music.json').map((res: any) => <Song[]>res);
   }
 }

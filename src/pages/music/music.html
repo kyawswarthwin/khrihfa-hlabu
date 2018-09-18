@@ -3,7 +3,7 @@
     <ion-title>Music</ion-title>
   </ion-navbar>
   <ion-toolbar no-border-top>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar [(ngModel)]="params.search" (keyup.enter)="onSearch()" (ionClear)="onClearSearch()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

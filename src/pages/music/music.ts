@@ -12,11 +12,25 @@ import { Song } from '../../models/song/song';
   templateUrl: 'music.html'
 })
 export class MusicPage {
+  params: any = {};
   songs: Song[];
 
   constructor(private music: MusicProvider) {}
 
   ionViewDidLoad() {
-    this.music.load().subscribe(songs => (this.songs = songs));
+    this.loadData();
+  }
+
+  loadData() {
+    this.music.load(this.params).subscribe(songs => (this.songs = songs));
+  }
+
+  onSearch() {
+    this.loadData();
+  }
+
+  onClearSearch() {
+    this.params.search = '';
+    this.loadData();
   }
 }
