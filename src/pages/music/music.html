@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>Music</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list [virtualScroll]="songs">
+    <button ion-item *virtualItem="let song">
+      {{ song.id }}. {{ song.title }}
+    </button>
+  </ion-list>
+</ion-content>
