@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { MusicProvider } from '../providers/music/music';
+import { HymnProvider } from '../providers/hymn/hymn';
 
 @NgModule({
   declarations: [MyApp],
@@ -16,7 +16,7 @@ import { MusicProvider } from '../providers/music/music';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SplashScreen,
     StatusBar,
-    MusicProvider
+    HymnProvider
   ],
   bootstrap: [IonicApp]
 })

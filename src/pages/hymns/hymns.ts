@@ -3,24 +3,24 @@ import { FormControl } from '@angular/forms';
 import { IonicPage } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
 
-import { MusicProvider } from '../../providers/music/music';
+import { HymnProvider } from '../../providers/hymn/hymn';
 import { Song } from '../../models/song/song';
 
 @IonicPage({
-  name: 'music',
-  segment: 'music'
+  name: 'hymns',
+  segment: 'hymns'
 })
 @Component({
-  selector: 'page-music',
-  templateUrl: 'music.html'
+  selector: 'page-hymns',
+  templateUrl: 'hymns.html'
 })
-export class MusicPage {
+export class HymnsPage {
   params: any = {};
   songs: Song[];
   searchControl: FormControl;
   searching: boolean;
 
-  constructor(private music: MusicProvider) {
+  constructor(private music: HymnProvider) {
     this.searchControl = new FormControl();
     this.searchControl.valueChanges.debounceTime(500).subscribe(search => {
       this.loadData();

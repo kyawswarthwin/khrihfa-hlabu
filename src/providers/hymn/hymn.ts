@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { Song } from '../../models/song/song';
 
 @Injectable()
-export class MusicProvider {
+export class HymnProvider {
   private songs: Observable<Song[]>;
 
   constructor(private http: HttpClient) {
@@ -25,6 +25,6 @@ export class MusicProvider {
   }
 
   private loadFromAssets() {
-    this.songs = this.http.get('assets/data/music.json').map((res: any) => <Song[]>res);
+    this.songs = this.http.get('assets/data/hymns.json').map((res: any) => <Song[]>res);
   }
 }
