@@ -4,7 +4,7 @@ import { IonicPage } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
 
 import { HymnProvider } from '../../providers/hymn/hymn';
-import { Song } from '../../models/song/song';
+import { Hymn } from '../../models/hymn/hymn';
 
 @IonicPage({
   name: 'hymns',
@@ -16,11 +16,11 @@ import { Song } from '../../models/song/song';
 })
 export class HymnsPage {
   params: any = {};
-  songs: Song[];
+  hymns: Hymn[];
   searchControl: FormControl;
   searching: boolean;
 
-  constructor(private music: HymnProvider) {
+  constructor(private hymnServ: HymnProvider) {
     this.searchControl = new FormControl();
     this.searchControl.valueChanges.debounceTime(500).subscribe(search => {
       this.loadData();
@@ -33,7 +33,7 @@ export class HymnsPage {
   }
 
   loadData() {
-    this.music.load(this.params).subscribe(songs => (this.songs = songs));
+    this.hymnServ.load(this.params).subscribe(hymns => (this.hymns = hymns));
   }
 
   onSearchInput(event) {

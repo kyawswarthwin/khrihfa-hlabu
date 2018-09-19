@@ -3,28 +3,28 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Song } from '../../models/song/song';
+import { Hymn } from '../../models/hymn/hymn';
 
 @Injectable()
 export class HymnProvider {
-  private songs: Observable<Song[]>;
+  private hymns: Observable<Hymn[]>;
 
   constructor(private http: HttpClient) {
     this.loadFromAssets();
   }
 
-  load(params: any = {}, fields: string[] = ['id', 'title']): Observable<Song[]> {
+  load(params: any = {}, fields: string[] = ['id', 'title']): Observable<Hymn[]> {
     const { search } = params;
-    let songs = this.songs;
+    let hymns = this.hymns;
     if (search) {
-      songs = songs.map(songs =>
-        songs.filter(song => fields.some(field => RegExp(search, 'i').test(song[field])))
+      hymns = hymns.map(hymns =>
+        hymns.filter(hymn => fields.some(field => RegExp(search, 'i').test(hymn[field])))
       );
     }
-    return songs;
+    return hymns;
   }
 
   private loadFromAssets() {
-    this.songs = this.http.get('assets/data/hymns.json').map((res: any) => <Song[]>res);
+    this.hymns = this.http.get('assets/data/hymns.json').map((res: any) => <Hymn[]>res);
   }
 }

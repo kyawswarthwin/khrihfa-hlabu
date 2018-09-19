@@ -11,9 +11,9 @@
   <div *ngIf="searching" class="spinner-container">
     <ion-spinner></ion-spinner>
   </div>
-  <ion-list [virtualScroll]="songs">
-    <button ion-item *virtualItem="let song">
-      {{ song.id }}. {{ song.title }}
+  <ion-list [virtualScroll]="hymns">
+    <button ion-item *virtualItem="let hymn">
+      {{ hymn.id }}. {{ hymn.title }}
     </button>
   </ion-list>
 </ion-content>
