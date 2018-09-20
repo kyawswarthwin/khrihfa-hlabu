@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IonicPage } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
 
+import { BasePage } from '../base/base';
 import { HymnProvider } from '../../providers/hymn/hymn';
 import { Hymn } from '../../models/hymn/hymn';
 
@@ -14,13 +15,15 @@ import { Hymn } from '../../models/hymn/hymn';
   selector: 'page-hymns',
   templateUrl: 'hymns.html'
 })
-export class HymnsPage {
+export class HymnsPage extends BasePage {
   params: any = {};
   hymns: Hymn[];
   searchControl: FormControl;
   searching: boolean;
 
-  constructor(private hymnServ: HymnProvider) {
+  constructor(public injector: Injector, private hymnServ: HymnProvider) {
+    super(injector);
+
     this.searchControl = new FormControl();
     this.searchControl.valueChanges.debounceTime(500).subscribe(search => {
       this.loadData();
