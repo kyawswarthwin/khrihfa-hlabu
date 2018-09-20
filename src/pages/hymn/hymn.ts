@@ -27,5 +27,19 @@ export class HymnPage extends BasePage {
       display: 'single',
       autoCenter: true
     });
+
+    $('#flipbook').turn('pages', 514);
+
+    $('#flipbook').bind('turning', function(event, page) {
+      function addPage(page, book) {
+        const element = $('<div />').html('Loading...');
+        book.turn('addPage', element, page);
+        $.ajax({ url: `assets/data/${page}.html` }).done(data => {
+          element.html(data);
+        });
+      }
+      const range = $(this).turn('range', page);
+      for (page = range[0]; page <= range[1]; page++) addPage(page, $(this));
+    });
   }
 }
