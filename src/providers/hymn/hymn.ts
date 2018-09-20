@@ -24,6 +24,10 @@ export class HymnProvider {
     return hymns;
   }
 
+  getHymn(id: number): Observable<string> {
+    return this.http.get(`assets/data/${id}.html`, { responseType: 'text' });
+  }
+
   private loadFromAssets() {
     this.hymns = this.http.get('assets/data/hymns.json').map((res: any) => <Hymn[]>res);
   }

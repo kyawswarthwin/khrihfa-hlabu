@@ -1,11 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Hymn</ion-title>
+    <ion-title>Hla No. {{ navParams.data.id }}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <div id="flipbook">
-    <div></div>
-  </div>
+<ion-content padding>
+  <div *ngIf="hymn" [innerHTML]="hymn"></div>
 </ion-content>
