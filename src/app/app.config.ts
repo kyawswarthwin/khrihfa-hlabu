@@ -1,0 +1,7 @@
+export const HOME_PAGE: any = 'hymns';
+
+export const FACEBOOK = {
+  PAGE_ID: 1633571953556041,
+  ACCESS_TOKEN:
+    'EAAECvDxZCwY8BAEaO2IzCjRHUvpDHoZAarOnIMsxrHLgEeG9HYO0R9duUPYwRo28LCNbqcj2f2LzopRbjsmhUYevHjyD0D4TesqDXlgzEscby6fZBZCXX6K9PDQMRUQnxADtAw2VxZBhy1vNOxvwq5aTeqfxWyoNylSSgtHH6TMCew1kyIUajZCZBFwZA0gXzOMZD'
+};
