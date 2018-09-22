@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar no-border-bottom>
     <ion-title>Khrihfa Hlabu</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toogleTheme()">
+        <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
   <ion-toolbar no-border-top>
     <ion-searchbar [(ngModel)]="params.search" [formControl]="searchControl" (ionInput)="onSearchInput($event)"></ion-searchbar>

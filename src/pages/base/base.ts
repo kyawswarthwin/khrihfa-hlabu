@@ -8,6 +8,8 @@ import {
   AlertController
 } from 'ionic-angular';
 
+import { SettingProvider } from '../../providers/setting/setting';
+
 export abstract class BasePage {
   public isLoadingView: boolean;
   public isEmptyView: boolean;
@@ -18,6 +20,7 @@ export abstract class BasePage {
   protected navParams: NavParams;
   protected refresher: any;
   protected infiniteScroll: any;
+  protected setting: SettingProvider;
 
   private modalCtrl: ModalController;
   private viewCtrl: ViewController;
@@ -28,6 +31,7 @@ export abstract class BasePage {
   constructor(public injector: Injector) {
     this.navCtrl = injector.get(NavController);
     this.navParams = injector.get(NavParams);
+    this.setting = injector.get(SettingProvider);
     this.modalCtrl = injector.get(ModalController);
     this.viewCtrl = injector.get(ViewController);
     this.loadingCtrl = injector.get(LoadingController);
@@ -165,5 +169,13 @@ export abstract class BasePage {
 
   closeModal(data?: any) {
     this.viewCtrl.dismiss(data);
+  }
+
+  toogleTheme() {
+    if (this.setting.getValue('theme') === 'theme-dark') {
+      this.setting.setValue('theme', 'theme-light');
+    } else {
+      this.setting.setValue('theme', 'theme-dark');
+    }
   }
 }
