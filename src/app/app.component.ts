@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
 
 import { SettingProvider } from '../providers/setting/setting';
 
@@ -14,12 +13,10 @@ export class MyApp {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private setting: SettingProvider
   ) {
-    platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+    this.platform.ready().then(() => {
+      this.splashScreen.hide();
     });
   }
 }
