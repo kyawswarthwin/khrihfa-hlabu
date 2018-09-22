@@ -11,9 +11,7 @@ export class SettingProvider {
   }
 
   getValue(key: string, defaultValue?: any): any {
-    return typeof this.settings === 'object' && this.settings.hasOwnProperty(key)
-      ? this.settings[key]
-      : defaultValue;
+    return this.settings && this.settings.hasOwnProperty(key) ? this.settings[key] : defaultValue;
   }
 
   setValue(key: string, value: any): Promise<any> {
@@ -22,6 +20,6 @@ export class SettingProvider {
   }
 
   private load() {
-    this.storage.get(this.SETTING_KEY).then(settings => (this.settings = settings));
+    this.storage.get(this.SETTING_KEY).then(settings => (this.settings = settings || {}));
   }
 }
