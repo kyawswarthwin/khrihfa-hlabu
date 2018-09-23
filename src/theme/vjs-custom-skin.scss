@@ -1,0 +1,75 @@
+.video-js {
+  font-size: 16px;
+  .vjs-control-bar {
+    background-color: transparent;
+  }
+  .vjs-play-progress,
+  .vjs-volume-level {
+    background-color: $primary-background-color;
+  }
+}
+.vjs-has-started.vjs-paused .vjs-big-play-button {
+  display: block;
+}
+
+// Audio Player
+.video-js.vjs-audio {
+  height: 3em;
+  .vjs-big-play-button {
+    display: none;
+  }
+  .vjs-control-bar {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .vjs-loading-spinner {
+    display: none;
+  }
+  &.vjs-waiting .vjs-progress-holder:not(.vjs-seeking) {
+    height: 0.5em;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #73859f,
+      #73859f 11px,
+      #eee 10px,
+      #eee 20px
+    );
+    background-size: 28px 28px;
+    border-radius: 3px;
+    transition: height 0.5s;
+    -webkit-animation: vjs-slider-indeterminate 0.5s linear infinite;
+    animation: vjs-slider-indeterminate 0.5s linear infinite;
+    .vjs-play-progress {
+      display: none;
+    }
+  }
+}
+@keyframes vjs-slider-indeterminate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 28px 0;
+  }
+}
+
+// Previous and Next Buttons
+.video-js {
+  .vjs-previous-control,
+  .vjs-next-control {
+    font-family: VideoJS;
+    font-weight: normal;
+    font-style: normal;
+    &::before {
+      font-size: 1.8em;
+      line-height: 1.67;
+    }
+  }
+  .vjs-previous-control::before {
+    content: '\f120';
+  }
+  .vjs-next-control::before {
+    content: '\f11f';
+  }
+}

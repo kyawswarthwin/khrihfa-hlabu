@@ -28,6 +28,10 @@ export class MyApp {
         {
           id: 'hymns',
           title: 'Khrihfa Hlabu'
+        },
+        {
+          id: 'news',
+          title: 'News'
         }
       ]
     }

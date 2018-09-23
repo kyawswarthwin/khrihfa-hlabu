@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>News Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toogleTheme()">
+        <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <message-view *ngIf="isErrorView" icon="wifi" message="No Connection Available"></message-view>
+  <message-view *ngIf="isEmptyView" icon="sad" message="No Data Found"></message-view>
+  <ion-card *ngIf="isContentView">
+    <img *ngIf="post.full_picture" [src]="post.full_picture">
+    <ion-card-content>
+      <ion-card-title *ngIf="post.story || post.name">{{ post.type === 'event' ? post.name : post.story || post.name }}</ion-card-title>
+      <ion-note icon-start class="date">
+        <ion-icon name="calendar"></ion-icon>
+        <span>{{ post.created_time | date: 'medium' }}</span>
+      </ion-note>
+      <pre *ngIf="post.type !== 'event' && post.message" text-wrap class="description">{{ post.message }}</pre>
+      <pre *ngIf="post.description" text-wrap class="description">{{ post.description }}</pre>
+      <div *ngIf="post.attachments && post.attachments.data[0].type === 'album'">
+        <ion-item *ngFor="let subattachment of post.attachments.data[0].subattachments.data">
+          <img [src]="subattachment.media.image.src">
+          <pre *ngIf="subattachment.description" text-wrap class="description">{{ subattachment.description }}</pre>
+        </ion-item>
+      </div>
+      <div *ngIf="post.type === 'video'" class="video-wrapper">
+        <vjs-video [src]="post.source"></vjs-video>
+      </div>
+    </ion-card-content>
+    <ion-item *ngIf="post.type === 'link'">
+      <a ion-button clear icon-start item-end [href]="post.link" target="_blank">
+        <ion-icon name="open"></ion-icon>
+        Open
+      </a>
+    </ion-item>
+  </ion-card>
+</ion-content>

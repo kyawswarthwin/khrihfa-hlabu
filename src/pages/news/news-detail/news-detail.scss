@@ -1,0 +1,16 @@
+page-news-detail {
+  .date {
+    ion-icon,
+    span {
+      vertical-align: middle;
+    }
+  }
+  .description {
+    padding-top: 8px;
+  }
+  .video-wrapper {
+    max-width: 640px;
+    padding-top: 16px;
+    margin: 0 auto;
+  }
+}

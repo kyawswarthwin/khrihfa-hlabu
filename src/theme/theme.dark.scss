@@ -1,6 +1,7 @@
 .theme-dark {
   .toolbar-title,
-  .bar-button-default {
+  .bar-button-default,
+  .card-title {
     color: #fff;
   }
   .toolbar-background {
@@ -13,5 +14,8 @@
   }
   strong {
     color: #d500f9;
+  }
+  ion-card-content {
+    background-color: #424242;
   }
 }

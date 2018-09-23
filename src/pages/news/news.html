@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>News</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toogleTheme()">
+        <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="onReload($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <message-view *ngIf="isErrorView" icon="wifi" message="No Connection Available"></message-view>
+  <message-view *ngIf="isEmptyView" icon="sad" message="No Data Found"></message-view>
+  <ion-list *ngIf="isContentView">
+    <button ion-item text-wrap *ngFor="let post of posts" navPush="news-detail" [navParams]="{ id: post.id }">
+      <ion-thumbnail item-start>
+        <img [src]="post.picture || 'http://placehold.it/130x130'">
+      </ion-thumbnail>
+      <h2 *ngIf="post.story || post.name" class="title">{{ post.type === 'event' ? post.name : post.story || post.name }}</h2>
+      <p icon-start class="date">
+        <ion-icon name="calendar"></ion-icon>
+        <span>{{ post.created_time | date: 'medium' }}</span>
+      </p>
+      <p *ngIf="post.message || post.description" class="description">{{ (post.message || post.description) | truncate: 130 }}</p>
+    </button>
+  </ion-list>
+  <ion-infinite-scroll *ngIf="isContentView" (ionInfinite)="onLoadMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

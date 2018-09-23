@@ -1,0 +1,17 @@
+page-news {
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .date {
+    ion-icon,
+    span {
+      vertical-align: middle;
+    }
+  }
+  .description {
+    padding-top: 8px;
+    color: #aaa;
+  }
+}

@@ -8,8 +8,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { FacebookService } from 'ngx-facebook';
 
 import { MyApp } from './app.component';
-import { HymnProvider } from '../providers/hymn/hymn';
 import { SettingProvider } from '../providers/setting/setting';
+import { HymnProvider } from '../providers/hymn/hymn';
+import { NewsProvider } from '../providers/news/news';
 
 @NgModule({
   declarations: [MyApp],
@@ -25,8 +26,9 @@ import { SettingProvider } from '../providers/setting/setting';
     SplashScreen,
     StatusBar,
     FacebookService,
+    SettingProvider,
     HymnProvider,
-    SettingProvider
+    NewsProvider
   ],
   bootstrap: [IonicApp]
 })
