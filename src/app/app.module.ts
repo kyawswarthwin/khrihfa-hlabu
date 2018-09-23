@@ -18,7 +18,9 @@ import { NewsProvider } from '../providers/news/news';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true
+    }),
     IonicStorageModule.forRoot()
   ],
   providers: [

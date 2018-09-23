@@ -8,9 +8,13 @@
     background: #212121;
   }
   ion-content,
+  .tabbar,
   .item {
-    background-color: #303030;
+    background-color: #303030 !important;
     color: #fff;
+  }
+  .activated {
+    background-color: #ebebeb !important;
   }
   strong {
     color: #d500f9;

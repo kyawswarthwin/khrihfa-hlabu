@@ -1,13 +1,12 @@
 import { Component, Injector } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 
-import { BasePage } from '../base/base';
-import { HymnProvider } from '../../providers/hymn/hymn';
+import { BasePage } from '../../../base/base';
+import { HymnProvider } from '../../../../providers/hymn/hymn';
 
 @IonicPage({
-  name: 'hymn',
   segment: 'hymns/:id',
-  defaultHistory: ['hymns']
+  defaultHistory: ['HymnsPage']
 })
 @Component({
   selector: 'page-hymn',

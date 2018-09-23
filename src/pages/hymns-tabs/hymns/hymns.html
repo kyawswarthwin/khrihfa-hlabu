@@ -20,7 +20,7 @@
     <ion-spinner color="primary"></ion-spinner>
   </div>
   <ion-list [virtualScroll]="hymns">
-    <button ion-item *virtualItem="let hymn" navPush="hymn" [navParams]="{ id: hymn.id }">
+    <button ion-item *virtualItem="let hymn" navPush="HymnPage" [navParams]="{ id: hymn.id }">
       {{ hymn.id }}. {{ hymn.title }}
     </button>
   </ion-list>

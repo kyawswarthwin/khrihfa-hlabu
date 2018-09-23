@@ -2,6 +2,6 @@
   @extend .activated;
   ion-icon,
   span {
-    color: color($colors, dark);
+    color: color($colors, primary);
   }
 }

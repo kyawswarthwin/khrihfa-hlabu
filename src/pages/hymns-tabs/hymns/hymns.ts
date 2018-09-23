@@ -1,15 +1,14 @@
 import { Component, Injector } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IonicPage } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
+import { IonicPage } from 'ionic-angular';
 
-import { BasePage } from '../base/base';
-import { HymnProvider } from '../../providers/hymn/hymn';
-import { Hymn } from '../../models/hymn/hymn';
+import { BasePage } from '../../base/base';
+import { HymnProvider } from '../../../providers/hymn/hymn';
+import { Hymn } from '../../../models/hymn/hymn';
 
 @IonicPage({
-  name: 'hymns',
-  segment: 'hymns'
+  segment: 'hymns/hymns'
 })
 @Component({
   selector: 'page-hymns',
