@@ -5,6 +5,9 @@
       <button ion-button icon-only (click)="toogleTheme()">
         <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
       </button>
+      <button ion-button icon-only (click)="toogleBookmark()">
+        <ion-icon name="bookmark" [color]="hymnServ.isBookmarked(navParams.data.id) ? 'primary' : ''"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>

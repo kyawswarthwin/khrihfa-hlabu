@@ -22,4 +22,12 @@ export class HymnPage extends BasePage {
   ionViewDidLoad() {
     this.hymnServ.getHymn(this.navParams.data.id).subscribe(hymn => (this.hymn = hymn));
   }
+
+  toogleBookmark() {
+    if (this.hymnServ.isBookmarked(this.navParams.data.id)) {
+      this.hymnServ.removeBookmark(this.navParams.data.id);
+    } else {
+      this.hymnServ.bookmark(this.navParams.data.id);
+    }
+  }
 }
