@@ -17,7 +17,7 @@
 
 <ion-content>
   <div *ngIf="searching" class="spinner-container">
-    <ion-spinner></ion-spinner>
+    <ion-spinner color="primary"></ion-spinner>
   </div>
   <ion-list [virtualScroll]="hymns">
     <button ion-item *virtualItem="let hymn" navPush="hymn" [navParams]="{ id: hymn.id }">
