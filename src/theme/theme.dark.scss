@@ -4,18 +4,18 @@
   .card-title {
     color: #fff;
   }
-  .toolbar-background {
-    background: #212121;
+  .toolbar-background,
+  .tabbar {
+    background-color: #212121 !important;
   }
   ion-content,
-  .tabbar,
-  .item,
-  ion-item-sliding {
+  ion-item-sliding,
+  .item {
     background-color: #303030 !important;
     color: #fff;
-  }
-  .activated {
-    background-color: #ebebeb !important;
+    .activated {
+      background-color: #ebebeb !important;
+    }
   }
   strong {
     color: #d500f9;
