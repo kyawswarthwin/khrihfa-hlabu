@@ -31,20 +31,20 @@ export class HymnProvider {
     return this.http.get(`assets/data/${id}.html`, { responseType: 'text' });
   }
 
-  bookmark(id: number) {
+  bookmark(id: number): Promise<any> {
     this.bookmarks.push(id);
-    this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
+    return this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
   }
 
   isBookmarked(id: number): boolean {
     return this.bookmarks.indexOf(id) > -1;
   }
 
-  removeBookmark(id: number) {
+  removeBookmark(id: number): Promise<any> {
     const index = this.bookmarks.indexOf(id);
     if (index > -1) {
       this.bookmarks.splice(index, 1);
-      this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
+      return this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
     }
   }
 

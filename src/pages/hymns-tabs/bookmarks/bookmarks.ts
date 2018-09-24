@@ -31,4 +31,9 @@ export class BookmarksPage extends BasePage {
       });
     });
   }
+
+  async delete(id: number) {
+    await this.hymnServ.removeBookmark(id);
+    this.loadData();
+  }
 }

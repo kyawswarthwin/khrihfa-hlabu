@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Bookmarks</ion-title>
+    <ion-title>Khrihfa Hlabu</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="toogleTheme()">
         <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
@@ -14,8 +14,16 @@
 
 <ion-content>
   <ion-list [virtualScroll]="hymns">
-    <button ion-item *virtualItem="let hymn" navPush="HymnPage" [navParams]="{ id: hymn.id }">
-      {{ hymn.id }}. {{ hymn.title }}
-    </button>
+    <ion-item-sliding *virtualItem="let hymn">
+      <button ion-item navPush="HymnPage" [navParams]="{ id: hymn.id }">
+        {{ hymn.id }}. {{ hymn.title }}
+      </button>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(hymn.id)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
