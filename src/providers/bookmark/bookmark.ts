@@ -3,7 +3,7 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class BookmarkProvider {
-  private BOOKMARK_KEY: string = '_Bookmark';
+  private readonly BOOKMARK_KEY: string = '_Bookmark';
   private bookmarks: number[];
 
   constructor(private storage: Storage) {
