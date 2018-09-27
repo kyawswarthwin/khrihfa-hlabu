@@ -5,8 +5,8 @@
       <button ion-button icon-only (click)="toogleTheme()">
         <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
       </button>
-      <button ion-button icon-only (click)="bookmarkServ.toogleBookmark(navParams.data.id)">
-        <ion-icon name="bookmark" [color]="bookmarkServ.isBookmarked(navParams.data.id) ? 'primary' : ''"></ion-icon>
+      <button ion-button icon-only (click)="bookmarkServ.toogleBookmark(BOOK, navParams.data.id)">
+        <ion-icon name="bookmark" [color]="bookmarkServ.isBookmarked(BOOK, navParams.data.id) ? 'primary' : ''"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

@@ -4,34 +4,40 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class BookmarkProvider {
   private readonly BOOKMARK_KEY: string = '_Bookmark';
-  private bookmarks: number[];
+  private bookmarks: any;
 
   constructor(private storage: Storage) {
-    this.storage.get(this.BOOKMARK_KEY).then(bookmarks => (this.bookmarks = bookmarks || []));
+    storage
+      .get(this.BOOKMARK_KEY)
+      .then(bookmarks => (this.bookmarks = bookmarks || {}))
+      .catch(console.error);
   }
 
-  addBookmark(id: number): Promise<any> {
-    this.bookmarks.push(id);
+  addBookmark(book: string, page: number): Promise<any> {
+    if (this.bookmarks[book] === undefined) {
+      this.bookmarks[book] = [];
+    }
+    this.bookmarks[book].push(page);
     return this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
   }
 
-  removeBookmark(id: number): Promise<any> {
-    const index = this.bookmarks && this.bookmarks.indexOf(id);
+  removeBookmark(book: string, page: number): Promise<any> {
+    const index = this.bookmarks && this.bookmarks[book] && this.bookmarks[book].indexOf(page);
     if (index > -1) {
-      this.bookmarks.splice(index, 1);
+      this.bookmarks[book].splice(index, 1);
       return this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
     }
   }
 
-  isBookmarked(id: number): boolean {
-    return this.bookmarks && this.bookmarks.indexOf(id) > -1;
+  isBookmarked(book: string, page: number): boolean {
+    return this.bookmarks && this.bookmarks[book] && this.bookmarks[book].indexOf(page) > -1;
   }
 
-  toogleBookmark(id: number): Promise<any> {
-    if (this.isBookmarked(id)) {
-      return this.removeBookmark(id);
+  toogleBookmark(book: string, page: number): Promise<any> {
+    if (this.isBookmarked(book, page)) {
+      return this.removeBookmark(book, page);
     } else {
-      return this.addBookmark(id);
+      return this.addBookmark(book, page);
     }
   }
 }

@@ -16,6 +16,7 @@ import { BookmarkProvider } from '../../../providers/bookmark/bookmark';
 export class BookmarksPage extends BasePage {
   params: any = {};
   hymns: Hymn[];
+  readonly BOOK: string = 'hymns';
 
   constructor(
     public injector: Injector,
@@ -32,13 +33,13 @@ export class BookmarksPage extends BasePage {
   loadData() {
     this.hymnServ.load(this.params).subscribe(hymns => {
       this.hymns = hymns.filter(hymn => {
-        return this.bookmarkServ.isBookmarked(hymn.id);
+        return this.bookmarkServ.isBookmarked(this.BOOK, hymn.id);
       });
     });
   }
 
   async delete(id: number) {
-    await this.bookmarkServ.removeBookmark(id);
+    await this.bookmarkServ.removeBookmark(this.BOOK, id);
     this.loadData();
   }
 }

@@ -15,6 +15,7 @@ import { BookmarkProvider } from '../../../../providers/bookmark/bookmark';
 })
 export class HymnPage extends BasePage {
   hymn: string;
+  readonly BOOK: string = 'hymns';
 
   constructor(
     public injector: Injector,
