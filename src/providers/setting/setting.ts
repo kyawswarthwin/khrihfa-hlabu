@@ -7,11 +7,7 @@ export class SettingProvider {
   private settings: any;
 
   constructor(private storage: Storage) {
-    this.initialize();
-  }
-
-  private initialize() {
-    this.storage.get(this.SETTING_KEY).then(settings => (this.settings = settings || {}));
+    storage.get(this.SETTING_KEY).then(settings => (this.settings = settings || {}));
   }
 
   getValue(key: string, defaultValue?: any): any {

@@ -4,6 +4,7 @@ import { IonicPage } from 'ionic-angular';
 import { BasePage } from '../../base/base';
 import { HymnProvider } from '../../../providers/hymn/hymn';
 import { Hymn } from '../../../models/hymn/hymn';
+import { BookmarkProvider } from '../../../providers/bookmark/bookmark';
 
 @IonicPage({
   segment: 'hymns/bookmarks'
@@ -16,7 +17,11 @@ export class BookmarksPage extends BasePage {
   params: any = {};
   hymns: Hymn[];
 
-  constructor(public injector: Injector, private hymnServ: HymnProvider) {
+  constructor(
+    public injector: Injector,
+    private hymnServ: HymnProvider,
+    private bookmarkServ: BookmarkProvider
+  ) {
     super(injector);
   }
 
@@ -27,13 +32,13 @@ export class BookmarksPage extends BasePage {
   loadData() {
     this.hymnServ.load(this.params).subscribe(hymns => {
       this.hymns = hymns.filter(hymn => {
-        return this.hymnServ.isBookmarked(hymn.id);
+        return this.bookmarkServ.isBookmarked(hymn.id);
       });
     });
   }
 
   async delete(id: number) {
-    await this.hymnServ.removeBookmark(id);
+    await this.bookmarkServ.removeBookmark(id);
     this.loadData();
   }
 }

@@ -9,6 +9,7 @@ import { FacebookService } from 'ngx-facebook';
 
 import { MyApp } from './app.component';
 import { SettingProvider } from '../providers/setting/setting';
+import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { HymnProvider } from '../providers/hymn/hymn';
 import { NewsProvider } from '../providers/news/news';
 
@@ -29,6 +30,7 @@ import { NewsProvider } from '../providers/news/news';
     StatusBar,
     FacebookService,
     SettingProvider,
+    BookmarkProvider,
     HymnProvider,
     NewsProvider
   ],
