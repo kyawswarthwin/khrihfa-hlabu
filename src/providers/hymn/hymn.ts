@@ -13,7 +13,12 @@ export class HymnProvider {
   private bookmarks: number[];
 
   constructor(private http: HttpClient, private storage: Storage) {
-    this.loadFromAssets();
+    this.initialize();
+  }
+
+  private async initialize() {
+    this.hymns = this.http.get('assets/data/hymns/hymns.json').map((res: any) => <Hymn[]>res);
+    this.bookmarks = (await this.storage.get(this.BOOKMARK_KEY)) || [];
   }
 
   load(params: any = {}, fields: string[] = ['id', 'title']): Observable<Hymn[]> {
@@ -46,10 +51,5 @@ export class HymnProvider {
       this.bookmarks.splice(index, 1);
       return this.storage.set(this.BOOKMARK_KEY, this.bookmarks);
     }
-  }
-
-  private async loadFromAssets() {
-    this.hymns = this.http.get('assets/data/hymns.json').map((res: any) => <Hymn[]>res);
-    this.bookmarks = (await this.storage.get(this.BOOKMARK_KEY)) || [];
   }
 }
