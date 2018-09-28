@@ -40,17 +40,17 @@ export class MyApp {
   rootPage: any = HOME_PAGE;
 
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private fb: FacebookService,
-    private setting: SettingProvider
+    public platform: Platform,
+    public splashScreen: SplashScreen,
+    public fb: FacebookService,
+    public setting: SettingProvider
   ) {
-    this.fb.init({
+    fb.init({
       version: 'v3.1'
     });
 
-    this.platform.ready().then(() => {
-      this.splashScreen.hide();
+    platform.ready().then(() => {
+      splashScreen.hide();
     });
   }
 

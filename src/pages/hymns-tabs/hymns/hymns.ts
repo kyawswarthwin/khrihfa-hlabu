@@ -20,7 +20,7 @@ export class HymnsPage extends BasePage {
   searchControl: FormControl;
   searching: boolean;
 
-  constructor(public injector: Injector, private hymnServ: HymnProvider) {
+  constructor(public injector: Injector, public hymnServ: HymnProvider) {
     super(injector);
 
     this.searchControl = new FormControl();
@@ -38,7 +38,7 @@ export class HymnsPage extends BasePage {
     this.hymnServ.load(this.params).subscribe(hymns => (this.hymns = hymns));
   }
 
-  onSearchInput(event) {
+  onSearchInput(event: any) {
     this.searching = true;
   }
 }

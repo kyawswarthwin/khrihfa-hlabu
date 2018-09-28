@@ -19,8 +19,8 @@ export class HymnPage extends BasePage {
 
   constructor(
     public injector: Injector,
-    private hymnServ: HymnProvider,
-    private bookmarkServ: BookmarkProvider
+    public hymnServ: HymnProvider,
+    public bookmarkServ: BookmarkProvider
   ) {
     super(injector);
   }

@@ -9,8 +9,8 @@ import { FacebookService } from 'ngx-facebook';
 
 import { MyApp } from './app.component';
 import { SettingProvider } from '../providers/setting/setting';
-import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { HymnProvider } from '../providers/hymn/hymn';
+import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { NewsProvider } from '../providers/news/news';
 
 @NgModule({
@@ -30,8 +30,8 @@ import { NewsProvider } from '../providers/news/news';
     StatusBar,
     FacebookService,
     SettingProvider,
-    BookmarkProvider,
     HymnProvider,
+    BookmarkProvider,
     NewsProvider
   ],
   bootstrap: [IonicApp]
