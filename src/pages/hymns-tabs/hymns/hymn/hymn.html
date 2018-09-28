@@ -5,6 +5,12 @@
       <button ion-button icon-only (click)="toogleTheme()">
         <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
       </button>
+      <button ion-button icon-only (click)="increaseFontSize()">
+        <ion-icon name="custom-font-size-increase"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="decreaseFontSize()">
+        <ion-icon name="custom-font-size-decrease"></ion-icon>
+      </button>
       <button ion-button icon-only (click)="bookmarkServ.toogleBookmark(BOOK, navParams.data.id)">
         <ion-icon name="bookmark" [color]="bookmarkServ.isBookmarked(BOOK, navParams.data.id) ? 'primary' : ''"></ion-icon>
       </button>
@@ -12,6 +18,6 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding [style.font-size.em]="setting.getValue('fontSize', '1')">
   <div *ngIf="hymn" [innerHTML]="hymn | safe: 'html'"></div>
 </ion-content>

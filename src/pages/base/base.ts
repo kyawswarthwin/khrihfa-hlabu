@@ -178,4 +178,12 @@ export abstract class BasePage {
       this.setting.setValue('theme', 'theme-dark');
     }
   }
+
+  increaseFontSize() {
+    this.setting.setValue('fontSize', this.setting.getValue('fontSize', 1) + 0.1);
+  }
+
+  decreaseFontSize() {
+    this.setting.setValue('fontSize', this.setting.getValue('fontSize', 1) - 0.1);
+  }
 }

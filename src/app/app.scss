@@ -5,3 +5,21 @@
     color: color($colors, primary);
   }
 }
+
+ion-icon {
+  &[class*='custom-'] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+
+  &[class*='custom-font-size-increase'] {
+    mask-image: url('../assets/imgs/format-font-size-increase.svg');
+  }
+  &[class*='custom-font-size-decrease'] {
+    mask-image: url('../assets/imgs/format-font-size-decrease.svg');
+  }
+}
