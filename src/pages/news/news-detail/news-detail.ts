@@ -5,7 +5,6 @@ import { BasePage } from '../../base/base';
 import { NewsProvider } from '../../../providers/news/news';
 
 @IonicPage({
-  name: 'news-detail',
   segment: 'news/:id',
   defaultHistory: ['news']
 })

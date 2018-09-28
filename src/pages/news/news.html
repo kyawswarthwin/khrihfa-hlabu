@@ -19,7 +19,7 @@
   <message-view *ngIf="isErrorView" icon="wifi" message="No Connection Available"></message-view>
   <message-view *ngIf="isEmptyView" icon="sad" message="No Data Found"></message-view>
   <ion-list *ngIf="isContentView">
-    <button ion-item text-wrap *ngFor="let post of posts" navPush="news-detail" [navParams]="{ id: post.id }">
+    <button ion-item text-wrap *ngFor="let post of posts" navPush="NewsDetailPage" [navParams]="{ id: post.id }">
       <ion-thumbnail item-start>
         <img [src]="post.picture || 'http://placehold.it/130x130'">
       </ion-thumbnail>
