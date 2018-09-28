@@ -10,10 +10,10 @@ import { BookmarkProvider } from '../../../providers/bookmark/bookmark';
   segment: 'hymns/bookmarks'
 })
 @Component({
-  selector: 'page-bookmarks',
-  templateUrl: 'bookmarks.html'
+  selector: 'page-hymns-bookmarks',
+  templateUrl: 'hymns-bookmarks.html'
 })
-export class BookmarksPage extends BasePage {
+export class HymnsBookmarksPage extends BasePage {
   params: any = {};
   hymns: Hymn[];
   readonly BOOK: string = 'hymns';

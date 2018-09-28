@@ -11,7 +11,7 @@ import { IonicPage } from 'ionic-angular';
 })
 export class HymnsTabsPage {
   tab1Root: any = 'HymnsPage';
-  tab2Root: any = 'BookmarksPage';
+  tab2Root: any = 'HymnsBookmarksPage';
 
   constructor() {}
 }
