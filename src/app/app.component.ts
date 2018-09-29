@@ -30,6 +30,10 @@ export class MyApp {
           title: 'Khrihfa Hlabu'
         },
         {
+          id: 'responsive-readings',
+          title: 'Chawnghlang Relnak'
+        },
+        {
           id: 'news',
           title: 'News'
         }

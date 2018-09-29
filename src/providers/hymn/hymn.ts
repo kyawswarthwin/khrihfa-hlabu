@@ -25,6 +25,6 @@ export class HymnProvider {
   }
 
   getHymn(id: number): Observable<string> {
-    return this.http.get(`assets/data/${id}.html`, { responseType: 'text' });
+    return this.http.get(`assets/data/hymns/${id}.html`, { responseType: 'text' });
   }
 }

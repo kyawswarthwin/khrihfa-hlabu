@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chawnghlang Relnak</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toogleTheme()">
+        <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list [virtualScroll]="responsiveReadings">
+    <ion-item-sliding *virtualItem="let responsiveReading">
+      <button ion-item navPush="ResponsiveReadingPage" [navParams]="{ id: responsiveReading.id }">
+        {{ responsiveReading.id }}. {{ responsiveReading.title }}
+      </button>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(responsiveReading.id)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

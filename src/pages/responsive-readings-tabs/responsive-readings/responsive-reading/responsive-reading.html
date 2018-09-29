@@ -19,5 +19,5 @@
 </ion-header>
 
 <ion-content padding [style.font-size.em]="setting.getValue('fontSize', '1')">
-  <div *ngIf="hymn" [innerHTML]="hymn | safe: 'html'"></div>
+  <div *ngIf="responsiveReading" [innerHTML]="responsiveReading | safe: 'html'"></div>
 </ion-content>

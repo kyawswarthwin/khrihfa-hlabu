@@ -10,6 +10,7 @@ import { FacebookService } from 'ngx-facebook';
 import { MyApp } from './app.component';
 import { SettingProvider } from '../providers/setting/setting';
 import { HymnProvider } from '../providers/hymn/hymn';
+import { ResponsiveReadingProvider } from '../providers/responsive-reading/responsive-reading';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { NewsProvider } from '../providers/news/news';
 
@@ -31,6 +32,7 @@ import { NewsProvider } from '../providers/news/news';
     FacebookService,
     SettingProvider,
     HymnProvider,
+    ResponsiveReadingProvider,
     BookmarkProvider,
     NewsProvider
   ],

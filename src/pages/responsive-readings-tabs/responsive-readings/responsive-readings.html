@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chawnghlang Relnak</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toogleTheme()">
+        <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar [(ngModel)]="params.search" [formControl]="searchControl" (ionInput)="onSearchInput($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  <ion-list [virtualScroll]="responsiveReadings">
+    <button ion-item *virtualItem="let responsiveReading" navPush="ResponsiveReadingPage" [navParams]="{ id: responsiveReading.id }">
+      {{ responsiveReading.id }}. {{ responsiveReading.title }}
+    </button>
+  </ion-list>
+</ion-content>
