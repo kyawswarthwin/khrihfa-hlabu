@@ -51,13 +51,19 @@ export class MyApp {
     public setting: SettingProvider,
     public ad: AdProvider
   ) {
-    fb.init({
-      version: 'v3.1'
-    });
+    this.initializeApp();
+  }
 
-    platform.ready().then(() => {
-      ad.showBanner();
-      splashScreen.hide();
+  initializeApp() {
+    this.fb
+      .init({
+        version: 'v3.1'
+      })
+      .catch(console.error);
+
+    this.platform.ready().then(async () => {
+      await this.ad.showBanner().catch(console.error);
+      this.splashScreen.hide();
     });
   }
 
