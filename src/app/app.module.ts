@@ -21,6 +21,7 @@ import { NewsProvider } from '../providers/news/news';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
+      tabsPlacement: 'top',
       tabsHideOnSubPages: true
     }),
     IonicStorageModule.forRoot()

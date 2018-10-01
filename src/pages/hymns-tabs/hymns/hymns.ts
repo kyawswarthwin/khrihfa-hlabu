@@ -17,6 +17,7 @@ import { Hymn } from '../../../models/hymn/hymn';
 export class HymnsPage extends BasePage {
   params: any = {};
   hymns: Hymn[];
+  isSearchbarOpened: boolean = false;
   searchControl: FormControl;
   searching: boolean;
 
@@ -40,5 +41,10 @@ export class HymnsPage extends BasePage {
 
   onSearchInput(event: any) {
     this.searching = true;
+  }
+
+  onSearchCancel(event: any) {
+    this.params.search = '';
+    this.isSearchbarOpened = false;
   }
 }

@@ -1,18 +1,20 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
-    <button ion-button menuToggle>
+  <ion-navbar>
+    <button ion-button menuToggle *ngIf="!isSearchbarOpened">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Khrihfa Hlabu</ion-title>
-    <ion-buttons end>
+    <ion-title *ngIf="!isSearchbarOpened">Khrihfa Hlabu</ion-title>
+    <ion-searchbar *ngIf="isSearchbarOpened" [(ngModel)]="params.search" [formControl]="searchControl" showCancelButton="true"
+      (ionInput)="onSearchInput($event)" (ionCancel)="onSearchCancel($event)"></ion-searchbar>
+    <ion-buttons end *ngIf="!isSearchbarOpened">
+      <button ion-button icon-only (click)="isSearchbarOpened = true">
+        <ion-icon name="search"></ion-icon>
+      </button>
       <button ion-button icon-only (click)="toogleTheme()">
         <ion-icon [name]="setting.getValue('theme') === 'theme-dark' ? 'sunny' : 'moon'"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-toolbar no-border-top>
-    <ion-searchbar [(ngModel)]="params.search" [formControl]="searchControl" (ionInput)="onSearchInput($event)"></ion-searchbar>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>

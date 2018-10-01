@@ -17,6 +17,7 @@ import { ResponsiveReading } from '../../../models/responsive-reading/responsive
 export class ResponsiveReadingsPage extends BasePage {
   params: any = {};
   responsiveReadings: ResponsiveReading[];
+  isSearchbarOpened: boolean = false;
   searchControl: FormControl;
   searching: boolean;
 
@@ -42,5 +43,10 @@ export class ResponsiveReadingsPage extends BasePage {
 
   onSearchInput(event: any) {
     this.searching = true;
+  }
+
+  onSearchCancel(event: any) {
+    this.params.search = '';
+    this.isSearchbarOpened = false;
   }
 }
