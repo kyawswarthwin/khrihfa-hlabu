@@ -36,7 +36,7 @@ export class MyApp {
         },
         {
           id: 'news',
-          title: 'News'
+          title: 'Daily Bible Chin'
         }
       ]
     }
