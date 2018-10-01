@@ -12,7 +12,7 @@ export class AdProvider {
     }
   }
 
-  showBanner(position: number = this.AD_POSITION.BOTTOM_CENTER) {
+  showBanner(position: number = this.AD_POSITION.BOTTOM_CENTER): Promise<any> {
     return new Promise((resolve, reject) => {
       FacebookAds &&
         FacebookAds.createBanner(
@@ -27,7 +27,7 @@ export class AdProvider {
     });
   }
 
-  showInterstitial() {
+  showInterstitial(): Promise<any> {
     return new Promise((resolve, reject) => {
       FacebookAds &&
         FacebookAds.prepareInterstitial(
