@@ -26,4 +26,18 @@ export class AdProvider {
         );
     });
   }
+
+  showInterstitial() {
+    return new Promise((resolve, reject) => {
+      FacebookAds &&
+        FacebookAds.prepareInterstitial(
+          {
+            adId: '1963332043744938_1973299412748201',
+            autoShow: true
+          },
+          resolve,
+          reject
+        );
+    });
+  }
 }
