@@ -5,6 +5,7 @@ import { FacebookService } from 'ngx-facebook';
 
 import { HOME_PAGE } from './app.config';
 import { SettingProvider } from '../providers/setting/setting';
+import { AdProvider } from '../providers/ad/ad';
 
 export interface PageInterface {
   id: string;
@@ -47,13 +48,15 @@ export class MyApp {
     public platform: Platform,
     public splashScreen: SplashScreen,
     public fb: FacebookService,
-    public setting: SettingProvider
+    public setting: SettingProvider,
+    public ad: AdProvider
   ) {
     fb.init({
       version: 'v3.1'
     });
 
     platform.ready().then(() => {
+      ad.showBanner();
       splashScreen.hide();
     });
   }

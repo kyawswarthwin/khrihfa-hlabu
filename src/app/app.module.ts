@@ -13,6 +13,7 @@ import { HymnProvider } from '../providers/hymn/hymn';
 import { ResponsiveReadingProvider } from '../providers/responsive-reading/responsive-reading';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { NewsProvider } from '../providers/news/news';
+import { AdProvider } from '../providers/ad/ad';
 
 @NgModule({
   declarations: [MyApp],
@@ -35,7 +36,8 @@ import { NewsProvider } from '../providers/news/news';
     HymnProvider,
     ResponsiveReadingProvider,
     BookmarkProvider,
-    NewsProvider
+    NewsProvider,
+    AdProvider
   ],
   bootstrap: [IonicApp]
 })

@@ -9,6 +9,7 @@ import {
 } from 'ionic-angular';
 
 import { SettingProvider } from '../../providers/setting/setting';
+import { AdProvider } from '../../providers/ad/ad';
 
 export abstract class BasePage {
   public isLoadingView: boolean;
@@ -21,6 +22,7 @@ export abstract class BasePage {
   protected refresher: any;
   protected infiniteScroll: any;
   protected setting: SettingProvider;
+  protected ad: AdProvider;
 
   private modalCtrl: ModalController;
   private viewCtrl: ViewController;
@@ -32,6 +34,7 @@ export abstract class BasePage {
     this.navCtrl = injector.get(NavController);
     this.navParams = injector.get(NavParams);
     this.setting = injector.get(SettingProvider);
+    this.ad = injector.get(AdProvider);
     this.modalCtrl = injector.get(ModalController);
     this.viewCtrl = injector.get(ViewController);
     this.loadingCtrl = injector.get(LoadingController);
