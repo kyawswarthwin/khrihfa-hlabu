@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Platform } from 'ionic-angular';
+
+import { AD_UNITS } from '../../app/app.config';
 
 declare var FacebookAds: any;
 
@@ -8,18 +11,19 @@ export class AdProvider {
 
   private readonly LICENSE: string = '7af82f9201280e3f1b7687257c234dc8';
 
-  constructor() {
-    if (FacebookAds) {
+  constructor(private platform: Platform) {
+    if (platform.is('cordova') && FacebookAds) {
       this.AD_POSITION = FacebookAds.AD_POSITION;
     }
   }
 
-  showBanner(position: number = this.AD_POSITION.BOTTOM_CENTER): Promise<any> {
+  showBanner(position: number = 8): Promise<any> {
     return new Promise((resolve, reject) => {
-      FacebookAds &&
+      this.platform.is('cordova') &&
+        FacebookAds &&
         FacebookAds.createBanner(
           {
-            adId: '1963332043744938_1971851559559653',
+            adId: this.getAdId('banner'),
             position: position,
             autoShow: true,
             license: this.LICENSE
@@ -32,10 +36,11 @@ export class AdProvider {
 
   showInterstitial(): Promise<any> {
     return new Promise((resolve, reject) => {
-      FacebookAds &&
+      this.platform.is('cordova') &&
+        FacebookAds &&
         FacebookAds.prepareInterstitial(
           {
-            adId: '1963332043744938_1973299412748201',
+            adId: this.getAdId('interstitial'),
             autoShow: true,
             license: this.LICENSE
           },
@@ -43,5 +48,15 @@ export class AdProvider {
           reject
         );
     });
+  }
+
+  private getAdId(format: string): string {
+    if (this.platform.is('ios')) {
+      return AD_UNITS.ios[format];
+    } else if (this.platform.is('android')) {
+      return AD_UNITS.android[format];
+    } else {
+      return '';
+    }
   }
 }
