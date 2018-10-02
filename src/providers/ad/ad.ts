@@ -6,19 +6,12 @@ declare var FacebookAds: any;
 export class AdProvider {
   public readonly AD_POSITION: any;
 
+  private readonly LICENSE: string = '7af82f9201280e3f1b7687257c234dc8';
+
   constructor() {
     if (FacebookAds) {
       this.AD_POSITION = FacebookAds.AD_POSITION;
-      this.setOptions({
-        license: '7af82f9201280e3f1b7687257c234dc8'
-      });
     }
-  }
-
-  setOptions(options: any): Promise<any> {
-    return new Promise((resolve, reject) => {
-      FacebookAds && FacebookAds.setOptions(options, resolve, reject);
-    });
   }
 
   showBanner(position: number = this.AD_POSITION.BOTTOM_CENTER): Promise<any> {
@@ -28,7 +21,8 @@ export class AdProvider {
           {
             adId: '1963332043744938_1971851559559653',
             position: position,
-            autoShow: true
+            autoShow: true,
+            license: this.LICENSE
           },
           resolve,
           reject
@@ -42,7 +36,8 @@ export class AdProvider {
         FacebookAds.prepareInterstitial(
           {
             adId: '1963332043744938_1973299412748201',
-            autoShow: true
+            autoShow: true,
+            license: this.LICENSE
           },
           resolve,
           reject
