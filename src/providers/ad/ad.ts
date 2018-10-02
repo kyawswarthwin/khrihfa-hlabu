@@ -11,6 +11,7 @@ export class AdProvider {
   constructor() {
     if (FacebookAds) {
       this.AD_POSITION = FacebookAds.AD_POSITION;
+      this.showBanner();
     }
   }
 
