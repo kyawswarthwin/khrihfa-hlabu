@@ -9,7 +9,16 @@ export class AdProvider {
   constructor() {
     if (FacebookAds) {
       this.AD_POSITION = FacebookAds.AD_POSITION;
+      this.setOptions({
+        license: '7af82f9201280e3f1b7687257c234dc8'
+      });
     }
+  }
+
+  setOptions(options: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      FacebookAds && FacebookAds.setOptions(options, resolve, reject);
+    });
   }
 
   showBanner(position: number = this.AD_POSITION.BOTTOM_CENTER): Promise<any> {
