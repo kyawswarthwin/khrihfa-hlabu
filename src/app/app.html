@@ -1,11 +1,8 @@
 <ion-menu [content]="content" [class]="setting.getValue('theme', 'theme-light')">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Khrihfa Hlabu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <ion-content>
+    <div class="menu-header">
+      <img src="assets/imgs/menu-background.png">
+    </div>
     <ion-list no-lines *ngFor="let menu of menus">
       <ion-list-header *ngIf="menu.header">{{ menu.header }}</ion-list-header>
       <button ion-item detail-none [ngClass]="{ 'menu-activated': isActive(page) }" *ngFor="let page of menu.pages"
