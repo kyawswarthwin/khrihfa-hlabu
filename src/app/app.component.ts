@@ -37,6 +37,10 @@ export class MyApp {
         {
           id: 'news',
           title: 'Daily Bible Chin'
+        },
+        {
+          id: 'about',
+          title: 'About'
         }
       ]
     }
@@ -62,7 +66,7 @@ export class MyApp {
       .catch(console.error);
 
     this.platform.ready().then(async () => {
-      await this.ad.showBanner().catch(console.error);// Bypass Ad-Sharing
+      await this.ad.showBanner().catch(console.error); // Bypass Ad-Sharing
       await this.ad.showBanner().catch(console.error);
       this.splashScreen.hide();
     });

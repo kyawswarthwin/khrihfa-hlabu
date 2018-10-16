@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -23,12 +23,14 @@
       <ion-thumbnail item-start>
         <img [src]="post.picture || 'http://placehold.it/130x130'">
       </ion-thumbnail>
-      <h2 *ngIf="post.story || post.name" class="title">{{ post.type === 'event' ? post.name : post.story || post.name }}</h2>
+      <h2 *ngIf="post.story || post.name" class="title">{{ post.type === 'event' ? post.name : post.story || post.name
+        }}</h2>
       <p icon-start class="date">
         <ion-icon name="calendar"></ion-icon>
         <span>{{ post.created_time | date: 'medium' }}</span>
       </p>
-      <p *ngIf="post.message || post.description" class="description">{{ (post.message || post.description) | truncate: 130 }}</p>
+      <p *ngIf="post.message || post.description" class="description">{{ (post.message || post.description) | truncate:
+        130 }}</p>
     </button>
   </ion-list>
   <ion-infinite-scroll *ngIf="isContentView" (ionInfinite)="onLoadMore($event)">
