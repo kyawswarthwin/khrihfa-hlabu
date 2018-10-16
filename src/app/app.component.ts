@@ -73,6 +73,7 @@ export class MyApp {
   }
 
   openPage(page: PageInterface) {
+    this.ad.showInterstitial();
     this.nav.setRoot(page.id);
   }
 

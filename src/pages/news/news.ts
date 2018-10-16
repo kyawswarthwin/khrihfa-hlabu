@@ -21,7 +21,6 @@ export class NewsPage extends BasePage {
   }
 
   ionViewDidLoad() {
-    this.ad.showInterstitial();
     this.showLoadingView('Loading...');
     this.onReload();
   }

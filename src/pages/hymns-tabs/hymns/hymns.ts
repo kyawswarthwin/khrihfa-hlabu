@@ -32,7 +32,6 @@ export class HymnsPage extends BasePage {
   }
 
   ionViewDidLoad() {
-    this.ad.showInterstitial();
     this.loadData();
   }
 
