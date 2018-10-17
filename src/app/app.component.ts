@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { FacebookService } from 'ngx-facebook';
 
 import { HOME_PAGE } from './app.config';
 import { SettingProvider } from '../providers/setting/setting';
@@ -51,7 +50,6 @@ export class MyApp {
   constructor(
     public platform: Platform,
     public splashScreen: SplashScreen,
-    public fb: FacebookService,
     public setting: SettingProvider,
     public ad: AdProvider
   ) {
@@ -59,12 +57,6 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.fb
-      .init({
-        version: 'v3.1'
-      })
-      .catch(console.error);
-
     this.platform.ready().then(async () => {
       await this.ad.showBanner().catch(console.error); // Bypass Ad-Sharing
       await this.ad.showBanner().catch(console.error);

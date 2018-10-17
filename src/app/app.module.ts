@@ -5,7 +5,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
-import { FacebookService } from 'ngx-facebook';
 
 import { MyApp } from './app.component';
 import { SettingProvider } from '../providers/setting/setting';
@@ -31,7 +30,6 @@ import { AdProvider } from '../providers/ad/ad';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SplashScreen,
     StatusBar,
-    FacebookService,
     SettingProvider,
     HymnProvider,
     ResponsiveReadingProvider,
