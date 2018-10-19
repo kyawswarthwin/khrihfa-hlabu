@@ -7,15 +7,9 @@ declare var FacebookAds: any;
 
 @Injectable()
 export class AdProvider {
-  public readonly AD_POSITION: any;
-
   private readonly LICENSE: string = '7af82f9201280e3f1b7687257c234dc8';
 
-  constructor(private platform: Platform) {
-    if (platform.is('cordova') && FacebookAds) {
-      this.AD_POSITION = FacebookAds.AD_POSITION;
-    }
-  }
+  constructor(private platform: Platform) {}
 
   showBanner(position: number = 8): Promise<any> {
     return new Promise((resolve, reject) => {
