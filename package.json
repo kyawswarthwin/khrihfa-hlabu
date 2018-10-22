@@ -1,6 +1,6 @@
 {
   "name": "khrihfa-hlabu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
+    "@ionic/lab": "1.0.11",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",

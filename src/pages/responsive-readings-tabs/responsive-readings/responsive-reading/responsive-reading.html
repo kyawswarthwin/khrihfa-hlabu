@@ -12,7 +12,7 @@
         <ion-icon name="custom-font-size-decrease"></ion-icon>
       </button>
       <button ion-button icon-only (click)="bookmarkServ.toogleBookmark(BOOK, navParams.data.id)">
-        <ion-icon name="bookmark" [color]="bookmarkServ.isBookmarked(BOOK, navParams.data.id) ? 'primary' : ''"></ion-icon>
+        <ion-icon name="bookmark" [color]="bookmarkServ.isBookmarked(BOOK, navParams.data.id) ? 'secondary' : ''"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
