@@ -58,7 +58,6 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(async () => {
-      await this.ad.showBanner().catch(console.error); // Bypass Ad-Sharing
       await this.ad.showBanner().catch(console.error);
       this.splashScreen.hide();
     });

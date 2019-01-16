@@ -1,46 +1,46 @@
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
+import {
+  AdMobFree,
+  AdMobFreeBannerConfig,
+  AdMobFreeInterstitialConfig
+} from '@ionic-native/admob-free';
 
 import { AD_UNITS } from '../../app/app.config';
 
-declare var FacebookAds: any;
-
 @Injectable()
 export class AdProvider {
-  private readonly LICENSE: string = '7af82f9201280e3f1b7687257c234dc8';
+  constructor(private platform: Platform, private adMobFree: AdMobFree) {}
 
-  constructor(private platform: Platform) {}
-
-  showBanner(position: number = 8): Promise<any> {
+  showBanner(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.platform.is('cordova') &&
-        FacebookAds &&
-        FacebookAds.createBanner(
-          {
-            adId: this.getAdId('banner'),
-            position: position,
-            autoShow: true,
-            license: this.LICENSE
-          },
-          resolve,
-          reject
-        );
+      if (this.platform.is('cordova')) {
+        const bannerConfig: AdMobFreeBannerConfig = {
+          id: this.getAdId('banner'),
+          autoShow: true
+        };
+        this.adMobFree.banner.config(bannerConfig);
+        this.adMobFree.banner
+          .prepare()
+          .then(resolve)
+          .catch(reject);
+      }
     });
   }
 
   showInterstitial(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.platform.is('cordova') &&
-        FacebookAds &&
-        FacebookAds.prepareInterstitial(
-          {
-            adId: this.getAdId('interstitial'),
-            autoShow: true,
-            license: this.LICENSE
-          },
-          resolve,
-          reject
-        );
+      if (this.platform.is('cordova')) {
+        const interstitialConfig: AdMobFreeInterstitialConfig = {
+          id: this.getAdId('interstitial'),
+          autoShow: true
+        };
+        this.adMobFree.interstitial.config(interstitialConfig);
+        this.adMobFree.interstitial
+          .prepare()
+          .then(resolve)
+          .catch(reject);
+      }
     });
   }
 

@@ -8,11 +8,11 @@ export const FACEBOOK = {
 
 export const AD_UNITS = {
   ios: {
-    banner: '1963332043744938_1974532382624904',
-    interstitial: '1963332043744938_1974533769291432'
+    banner: 'ca-app-pub-4222074648580980/8605471928',
+    interstitial: 'ca-app-pub-4222074648580980/1525058258'
   },
   android: {
-    banner: '1963332043744938_1971851559559653',
-    interstitial: '1963332043744938_1973299412748201'
+    banner: 'ca-app-pub-4222074648580980/9813457838',
+    interstitial: 'ca-app-pub-4222074648580980/6445537393'
   }
 };
