@@ -1,0 +1,8 @@
+{
+  "appId": "com.khrihfahlabu.app",
+  "appName": "Khrihfa Hlabu",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
